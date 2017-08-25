@@ -8,21 +8,31 @@ import java.util.Date;
 
 public class Earthquake {
 
-    private String mMagnitude;
+    private double mMagnitude;
     private String mLocation;
-    private Date mDate;
+    private long mDate;
+    private String mUrl;
 
-    public Earthquake(String mMagnitude, String mLocation, Date mDate) {
+    public Earthquake(double mMagnitude, String mLocation, long mDate, String url) {
         this.mMagnitude = mMagnitude;
         this.mLocation = mLocation;
         this.mDate = mDate;
+        this.mUrl = url;
     }
 
-    public String getMagnitude() {
+    public String getUrl() {
+        return mUrl;
+    }
+
+    public void setUrl(String mUrl) {
+        this.mUrl = mUrl;
+    }
+
+    public double getMagnitude() {
         return mMagnitude;
     }
 
-    public void setMagnitude(String mMagnitude) {
+    public void setMagnitude(double mMagnitude) {
         this.mMagnitude = mMagnitude;
     }
 
@@ -34,11 +44,15 @@ public class Earthquake {
         this.mLocation = mLocation;
     }
 
-    public Date getDate() {
+    public long getUnixTime() {
         return mDate;
     }
 
-    public void setDate(Date mDate) {
+    public Date getDate() {
+        return new Date(mDate);
+    }
+
+    public void setDate(long mDate) {
         this.mDate = mDate;
     }
 }
